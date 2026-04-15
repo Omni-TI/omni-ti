@@ -7,7 +7,8 @@ import {
   Database, Phone, Package, Cpu, Code2,
   Trophy, Target, TrendingUp, Users,
   Mail, Linkedin, MapPin, Star, AlertCircle, Rocket, 
-  DollarSign, Clock, Users as UsersIcon, ShieldCheck, Heart, Award, Sparkles
+  DollarSign, Clock, Users as UsersIcon, ShieldCheck, Heart, Award, Sparkles,
+  MousePointer2
 } from 'lucide-react';
 
 export default function App() {
@@ -20,7 +21,7 @@ export default function App() {
     window.scrollTo(0, 0);
   };
 
-  // Listado Maestro de los 12 Servicios con sus sub-divisiones exactas
+  // Listado Maestro de los 12 Servicios
   const allServices = [
     { 
       id: 'iot',
@@ -152,33 +153,32 @@ export default function App() {
               <button onClick={() => navigate('home')} className={`px-4 py-2 text-sm font-medium transition-all rounded-lg ${currentPage === 'home' ? 'text-blue-600 bg-blue-50' : 'text-slate-600 hover:text-blue-600 hover:bg-slate-50'}`}>Inicio</button>
               <button onClick={() => navigate('about')} className={`px-4 py-2 text-sm font-medium transition-all rounded-lg ${currentPage === 'about' ? 'text-blue-600 bg-blue-50' : 'text-slate-600 hover:text-blue-600 hover:bg-slate-50'}`}>Nosotros</button>
               
-              {/* Mega Menú de Servicios */}
               <div className="group relative cursor-pointer">
                 <button className="flex items-center px-4 py-2 text-sm font-medium text-slate-600 group-hover:text-blue-600 transition-all rounded-lg group-hover:bg-slate-50">
                   Servicios <ChevronDown className="ml-1 w-4 h-4 group-hover:rotate-180 transition-transform duration-300" />
                 </button>
                 <div className="absolute top-full left-1/2 -translate-x-1/2 w-[850px] bg-white shadow-2xl rounded-2xl border border-slate-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 p-8 grid grid-cols-3 gap-8 mt-2">
-                  <div className="space-y-4 text-left">
-                    <h4 className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] mb-4">Infraestructura</h4>
+                  <div className="space-y-4 text-left text-xs">
+                    <h4 className="font-black text-slate-400 uppercase tracking-widest mb-4">Infraestructura</h4>
                     {allServices.filter(s => s.category === 'Infraestructura').map(s => (
-                      <button key={s.id} onClick={() => navigate('services')} className="flex items-center gap-3 text-xs font-bold text-slate-600 hover:text-blue-600 w-full text-left group/item">
-                        <s.icon className="w-4 h-4 group-hover/item:scale-110 transition-transform flex-shrink-0"/> {s.title}
+                      <button key={s.id} onClick={() => navigate('services')} className="flex items-center gap-3 text-slate-600 hover:text-blue-600 w-full text-left font-bold transition-colors">
+                        <s.icon className="w-4 h-4 flex-shrink-0"/> {s.title}
                       </button>
                     ))}
                   </div>
-                  <div className="space-y-4 text-left">
-                    <h4 className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] mb-4">Operaciones</h4>
+                  <div className="space-y-4 text-left text-xs">
+                    <h4 className="font-black text-slate-400 uppercase tracking-widest mb-4">Operaciones</h4>
                     {allServices.filter(s => s.category === 'Operaciones').map(s => (
-                      <button key={s.id} onClick={() => navigate('services')} className="flex items-center gap-3 text-xs font-bold text-slate-600 hover:text-blue-600 w-full text-left group/item">
-                        <s.icon className="w-4 h-4 group-hover/item:scale-110 transition-transform flex-shrink-0"/> {s.title}
+                      <button key={s.id} onClick={() => navigate('services')} className="flex items-center gap-3 text-slate-600 hover:text-blue-600 w-full text-left font-bold transition-colors">
+                        <s.icon className="w-4 h-4 flex-shrink-0"/> {s.title}
                       </button>
                     ))}
                   </div>
-                  <div className="space-y-4 text-left">
-                    <h4 className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] mb-4">Estrategia</h4>
+                  <div className="space-y-4 text-left text-xs">
+                    <h4 className="font-black text-slate-400 uppercase tracking-widest mb-4">Estrategia</h4>
                     {allServices.filter(s => s.category === 'Estrategia').map(s => (
-                      <button key={s.id} onClick={() => navigate('services')} className="flex items-center gap-3 text-xs font-bold text-slate-600 hover:text-blue-600 w-full text-left group/item">
-                        <s.icon className="w-4 h-4 group-hover/item:scale-110 transition-transform flex-shrink-0"/> {s.title}
+                      <button key={s.id} onClick={() => navigate('services')} className="flex items-center gap-3 text-slate-600 hover:text-blue-600 w-full text-left font-bold transition-colors">
+                        <s.icon className="w-4 h-4 flex-shrink-0"/> {s.title}
                       </button>
                     ))}
                   </div>
@@ -214,51 +214,183 @@ export default function App() {
       {/* RENDERIZADO PRINCIPAL */}
       {currentPage === 'home' && (
         <main className="animate-in fade-in duration-700">
-          {/* Hero */}
-          <section className="relative pt-20 pb-24 md:pt-32 md:pb-40 bg-white overflow-hidden text-center">
+          
+          {/* HERO SECTION ACTUALIZADO */}
+          <section className="relative pt-16 pb-24 md:pt-32 md:pb-40 bg-white overflow-hidden text-center">
             <div className="max-w-7xl mx-auto px-4 relative z-10">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 text-blue-700 rounded-full text-xs font-bold mb-8 animate-pulse">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 text-blue-700 rounded-full text-[10px] font-black uppercase tracking-widest mb-8 animate-bounce">
                 <Sparkles className="w-4 h-4" /> Partner Tecnológico Integral
               </div>
               <h1 className="text-5xl md:text-8xl font-black mb-8 tracking-tighter leading-none text-slate-900">
-                Tu tecnología, <br/>
-                <span className="text-blue-600">en buenas manos.</span>
+                Tu departamento TI, <br/>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">pero más inteligente.</span>
               </h1>
-              <p className="text-xl text-slate-500 mb-12 max-w-2xl mx-auto font-medium leading-relaxed">Infraestructura de red, ciberseguridad avanzada y automatización inteligente en un solo partner de confianza.</p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button onClick={() => navigate('services')} className="bg-blue-600 text-white px-10 py-5 rounded-2xl font-black shadow-xl shadow-blue-200 hover:-translate-y-1 transition-all flex items-center justify-center gap-3">Explorar Servicios <ArrowRight className="w-5 h-5"/></button>
-                <button onClick={() => navigate('roi')} className="bg-slate-50 text-slate-700 px-10 py-5 rounded-2xl font-black border border-slate-200">Ver Ahorro (ROI)</button>
+              <p className="text-xl text-slate-500 mb-12 max-w-2xl mx-auto font-medium leading-relaxed">
+                Elimina las barreras tecnológicas. Desde infraestructura física hasta automatización con IA, Omni TI unifica tu operación para que tú solo te enfoques en crecer.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <button 
+                  onClick={() => navigate('services')} 
+                  className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white px-10 py-5 rounded-2xl font-black transition-all shadow-xl shadow-blue-200 hover:-translate-y-1 flex items-center justify-center gap-3"
+                >
+                  Explorar Soluciones <ArrowRight className="w-5 h-5"/>
+                </button>
+                <button 
+                  onClick={() => navigate('roi')} 
+                  className="w-full sm:w-auto bg-white text-slate-900 border-2 border-slate-100 px-10 py-5 rounded-2xl font-black transition-all hover:bg-slate-50 flex items-center justify-center gap-3 shadow-sm"
+                >
+                  <BarChart className="w-5 h-5 text-emerald-500" /> Calcular Ahorro
+                </button>
               </div>
+            </div>
+            {/* Decoración de fondo */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full pointer-events-none -z-10 opacity-30">
+                <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-blue-100 rounded-full blur-[120px]"></div>
+                <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-indigo-100 rounded-full blur-[120px]"></div>
             </div>
           </section>
 
-          {/* CATEGORÍAS EN HOME (LOS 12 SERVICIOS) */}
+          {/* BARRA DE ESTADÍSTICAS */}
+          <div className="border-y border-slate-100 bg-white py-16">
+            <div className="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-12">
+              {[
+                { l: "Uptime Garantizado", v: "99.9%" },
+                { l: "Soporte", v: "24/7" },
+                { l: "Proyectos Exitosos", v: "+100" },
+                { l: "Eficiencia Ganada", v: "75%" }
+              ].map((stat, i) => (
+                <div key={i} className="text-center">
+                  <div className="text-4xl font-black text-slate-900 mb-2">{stat.v}</div>
+                  <div className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">{stat.l}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* SECCIÓN "¿TE SUENA FAMILIAR?" */}
           <section className="py-24 bg-slate-50">
             <div className="max-w-7xl mx-auto px-4 text-center">
-              <div className="mb-20">
-                <h2 className="text-4xl md:text-6xl font-black text-slate-900 mb-6 tracking-tighter">Nuestros Pilares</h2>
-                <p className="text-slate-500 font-medium text-lg">Dividimos nuestra expertise en 3 áreas clave para cubrir el 100% de tu negocio.</p>
-              </div>
+              <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-4 tracking-tighter">¿Te suena familiar?</h2>
+              <p className="text-slate-500 mb-16 font-medium text-lg">La tecnología debería trabajar para ti, no al revés.</p>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                {['Infraestructura', 'Operaciones', 'Estrategia'].map((cat, i) => (
-                  <div key={i} className="bg-white p-12 rounded-[3.5rem] border border-slate-200 shadow-sm hover:shadow-xl transition-all group text-left">
-                    <div className="mb-8 inline-block p-5 bg-blue-50 text-blue-600 rounded-2xl group-hover:scale-110 transition-transform">
-                      {cat === 'Infraestructura' ? <Network className="w-10 h-10" /> : cat === 'Operaciones' ? <ShieldCheck className="w-10 h-10" /> : <Zap className="w-10 h-10" />}
-                    </div>
-                    <h3 className="text-3xl font-black mb-8 text-slate-900 tracking-tight">{cat}</h3>
-                    <ul className="space-y-4">
-                      {allServices.filter(s => s.category === cat).map(s => (
-                        <li key={s.id} className="flex items-center gap-3 text-sm font-bold text-slate-500 hover:text-blue-600 transition-colors cursor-default">
-                          <CheckCircle2 className="w-5 h-5 text-blue-500 flex-shrink-0" /> {s.title}
-                        </li>
-                      ))}
-                    </ul>
-                    <button onClick={() => navigate('services')} className="mt-12 text-blue-600 font-black text-xs uppercase tracking-widest flex items-center gap-2 group-hover:gap-4 transition-all">Ver Catálogo Completo <ArrowRight className="w-4 h-4" /></button>
+                {[
+                  { t: "Lentitud Operativa", d: "Procesos manuales y sistemas que fallan cuando más los necesitas.", i: Clock, c: "text-amber-500" },
+                  { t: "Incertidumbre Digital", d: "¿Están mis datos seguros? ¿Qué pasa si pierdo mi información?", i: AlertCircle, c: "text-rose-500" },
+                  { t: "Costos Ocultos", d: "Pagar múltiples proveedores y licencias sin ver resultados claros.", i: DollarSign, c: "text-emerald-500" }
+                ].map((item, idx) => (
+                  <div key={idx} className="bg-white p-10 rounded-[3rem] border border-slate-100 shadow-sm hover:shadow-xl transition-all text-left group">
+                    <item.i className={`w-12 h-12 ${item.c} mb-8 group-hover:scale-110 transition-transform`} />
+                    <h3 className="text-2xl font-black mb-4 text-slate-900">{item.t}</h3>
+                    <p className="text-slate-500 leading-relaxed font-medium">{item.d}</p>
                   </div>
                 ))}
               </div>
             </div>
           </section>
+
+          {/* SECCIÓN SOLUCIONES 360° (NUESTROS PILARES) */}
+          <section className="py-24 bg-white">
+            <div className="max-w-7xl mx-auto px-4">
+              <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8 text-center md:text-left">
+                <div className="max-w-xl">
+                  <h2 className="text-4xl md:text-6xl font-black text-slate-900 mb-6 tracking-tighter leading-none">Soluciones 360° para la era moderna.</h2>
+                  <p className="text-xl text-slate-500 font-medium leading-relaxed">No somos solo soporte; somos la base sobre la que escalas tu negocio.</p>
+                </div>
+                <button onClick={() => navigate('services')} className="text-blue-600 font-black text-sm uppercase tracking-widest flex items-center gap-3 hover:gap-5 transition-all group">
+                  Ver catálogo completo <ArrowRight className="w-5 h-5"/>
+                </button>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+                {['Infraestructura', 'Operaciones', 'Estrategia'].map((cat, i) => (
+                  <div key={i} className="bg-slate-50/50 p-12 rounded-[4rem] border border-slate-100 hover:shadow-2xl transition-all group relative overflow-hidden">
+                    <div className="mb-10 inline-block p-5 bg-white text-blue-600 rounded-3xl shadow-sm group-hover:scale-110 group-hover:rotate-3 transition-all">
+                      {cat === 'Infraestructura' ? <Network className="w-10 h-10" /> : cat === 'Operaciones' ? <ShieldCheck className="w-10 h-10" /> : <Zap className="w-10 h-10" />}
+                    </div>
+                    <h3 className="text-3xl font-black mb-8 text-slate-900 tracking-tight">{cat}</h3>
+                    <ul className="space-y-5">
+                      {allServices.filter(s => s.category === cat).map(s => (
+                        <li key={s.id} className="flex items-center gap-3 text-sm font-bold text-slate-600 hover:text-blue-600 transition-colors cursor-pointer" onClick={() => navigate('services')}>
+                          <CheckCircle2 className="w-5 h-5 text-blue-400 flex-shrink-0" /> {s.title}
+                        </li>
+                      ))}
+                    </ul>
+                    <button onClick={() => navigate('services')} className="mt-12 text-blue-600 font-black text-[10px] uppercase tracking-[0.2em] flex items-center gap-2 group-hover:translate-x-2 transition-transform">
+                      Ver detalles <ArrowRight className="w-4 h-4" />
+                    </button>
+                    {/* Elemento visual decorativo */}
+                    <div className="absolute -bottom-10 -right-10 opacity-5 group-hover:scale-125 transition-transform duration-1000">
+                      {cat === 'Infraestructura' ? <Network className="w-48 h-48" /> : cat === 'Operaciones' ? <ShieldCheck className="w-48 h-48" /> : <Zap className="w-48 h-48" />}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* SECCIÓN HERRAMIENTAS INTERACTIVAS */}
+          <section className="py-24 bg-slate-900 relative overflow-hidden">
+            <div className="max-w-7xl mx-auto px-4 relative z-10 text-center text-white">
+              <h2 className="text-4xl md:text-6xl font-black mb-6 tracking-tighter">¿Listo para dejar de perder tiempo?</h2>
+              <p className="text-slate-400 mb-16 max-w-2xl mx-auto text-xl font-medium leading-relaxed">
+                Usa nuestras herramientas interactivas para entender tu nivel tecnológico actual o cuánto dinero podrías ahorrar hoy mismo.
+              </p>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto">
+                {/* Card ROI */}
+                <div 
+                  onClick={() => navigate('roi')} 
+                  className="bg-white/5 backdrop-blur-xl border border-white/10 p-12 rounded-[3.5rem] text-left hover:bg-white/10 transition-all cursor-pointer group"
+                >
+                  <DollarSign className="w-14 h-14 text-emerald-500 mb-8" />
+                  <h3 className="text-3xl font-black mb-4">Calculadora ROI</h3>
+                  <p className="text-slate-400 font-medium mb-10 leading-relaxed">Mide el impacto financiero de la ineficiencia en tu equipo y descubre cuánto capital puedes recuperar.</p>
+                  <button className="text-emerald-500 font-black text-sm uppercase tracking-widest flex items-center gap-3 group-hover:gap-5 transition-all">
+                    Iniciar cálculo <ArrowRight className="w-5 h-5" />
+                  </button>
+                </div>
+                
+                {/* Card Test Madurez */}
+                <div 
+                  onClick={() => navigate('assessment')} 
+                  className="bg-white/5 backdrop-blur-xl border border-white/10 p-12 rounded-[3.5rem] text-left hover:bg-white/10 transition-all cursor-pointer group"
+                >
+                  <Target className="w-14 h-14 text-blue-500 mb-8" />
+                  <h3 className="text-3xl font-black mb-4">Test de Madurez</h3>
+                  <p className="text-slate-400 font-medium mb-10 leading-relaxed">Pon a prueba tu empresa y obtén un plan de mejora gratuito basado en tu estado actual.</p>
+                  <button className="text-blue-500 font-black text-sm uppercase tracking-widest flex items-center gap-3 group-hover:gap-5 transition-all">
+                    Comenzar test <ArrowRight className="w-5 h-5" />
+                  </button>
+                </div>
+              </div>
+            </div>
+            {/* Background Blur */}
+            <div className="absolute top-0 right-0 w-96 h-96 bg-blue-600 rounded-full blur-[150px] opacity-10"></div>
+            <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-600 rounded-full blur-[150px] opacity-10"></div>
+          </section>
+
+          {/* CTA FINAL (BLUE CARD) */}
+          <section className="py-24 bg-white">
+            <div className="max-w-6xl mx-auto px-4">
+              <div className="bg-blue-600 rounded-[4rem] p-12 md:p-20 text-center text-white relative overflow-hidden shadow-2xl shadow-blue-200">
+                <div className="relative z-10">
+                  <h2 className="text-4xl md:text-6xl font-black mb-8 tracking-tighter leading-none">Hagamos que la tecnología sea tu aliada.</h2>
+                  <p className="text-blue-100 mb-12 text-xl font-medium max-w-xl mx-auto leading-relaxed">
+                    Solicita una auditoría inicial sin compromiso y descubre el potencial real de tu infraestructura.
+                  </p>
+                  <button 
+                    onClick={() => navigate('contact')}
+                    className="bg-white text-blue-600 px-12 py-6 rounded-3xl font-black text-xl hover:bg-slate-50 transition-all shadow-xl active:scale-95"
+                  >
+                    Agendar Consultoría Gratuita
+                  </button>
+                </div>
+                {/* Icono de fondo decorativo */}
+                <Bot className="absolute -bottom-10 -right-10 w-72 h-72 text-white/10 -rotate-12" />
+              </div>
+            </div>
+          </section>
+
         </main>
       )}
 
@@ -269,34 +401,36 @@ export default function App() {
       {currentPage === 'cases' && <CasesPage />}
       {currentPage === 'contact' && <ContactPage />}
 
-      {/* FOOTER */}
-      <footer className="bg-slate-950 text-slate-400 py-16 border-t border-slate-900 mt-auto">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:text-left">
+      {/* FOOTER ACTUALIZADO */}
+      <footer className="bg-slate-950 text-slate-400 py-20 border-t border-slate-900 mt-auto">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-16 mb-16">
             <div className="col-span-1 md:col-span-2 text-center md:text-left">
-              <div className="flex items-center gap-2 mb-6 cursor-pointer justify-center md:justify-start" onClick={() => navigate('home')}>
+              <div className="flex items-center gap-2 mb-8 justify-center md:justify-start">
                 <Bot className="text-blue-500 w-10 h-10" />
                 <span className="font-black text-3xl text-white tracking-tighter">Omni TI</span>
               </div>
-              <p className="max-w-sm mx-auto md:mx-0 leading-relaxed font-medium">Arquitectos de tu evolución digital. Aseguramos el presente, planeamos el futuro.</p>
+              <p className="max-w-sm mx-auto md:mx-0 leading-relaxed font-medium">
+                Haciendo la tecnología empresarial accesible, segura y automática. Tu partner estratégico en Chile.
+              </p>
             </div>
             <div>
-              <h4 className="text-white font-black text-sm uppercase tracking-widest mb-8 text-center md:text-left">Empresa</h4>
+              <h4 className="text-white font-black text-xs uppercase tracking-[0.3em] mb-8 text-center md:text-left">Empresa</h4>
               <ul className="space-y-4 font-bold text-sm text-center md:text-left">
-                <li><button onClick={() => navigate('about')} className="hover:text-blue-400 transition-colors">Nosotros</button></li>
                 <li><button onClick={() => navigate('services')} className="hover:text-blue-400 transition-colors">Servicios</button></li>
+                <li><button onClick={() => navigate('roi')} className="hover:text-blue-400 transition-colors">Calculadora ROI</button></li>
                 <li><button onClick={() => navigate('cases')} className="hover:text-blue-400 transition-colors">Casos de Éxito</button></li>
               </ul>
             </div>
             <div>
-              <h4 className="text-white font-black text-sm uppercase tracking-widest mb-8 text-center md:text-left">Conecta</h4>
+              <h4 className="text-white font-black text-xs uppercase tracking-[0.3em] mb-8 text-center md:text-left">Conecta</h4>
               <ul className="space-y-4 font-bold text-sm text-center md:text-left">
                 <li>Email: <a href="mailto:ventas@omniti.cl" className="hover:text-blue-400 transition-colors">ventas@omniti.cl</a></li>
                 <li>LinkedIn: <a href="https://linkedin.com/omniti" target="_blank" rel="noreferrer" className="hover:text-blue-400 transition-colors">@omniti</a></li>
               </ul>
             </div>
           </div>
-          <div className="pt-10 border-t border-slate-900 text-[10px] font-black text-center uppercase tracking-[0.3em] text-slate-600">
+          <div className="pt-10 border-t border-slate-900 text-[10px] font-black text-center uppercase tracking-[0.4em] text-slate-600">
             &copy; {new Date().getFullYear()} OMNI TI. SANTIAGO, CHILE.
           </div>
         </div>
@@ -530,7 +664,7 @@ function ContactPage() {
     <div className="bg-white min-h-screen pb-24 text-slate-700 text-center animate-in fade-in duration-500">
       <div className="bg-slate-900 text-white py-32 px-4">
         <h1 className="text-5xl md:text-9xl font-black mb-10 tracking-tighter">Hablemos.</h1>
-        <p className="text-2xl text-slate-400 max-w-2xl mx-auto font-medium">Estamos listos para potenciar tu empresa.</p>
+        <p className="text-2xl text-slate-400 max-w-2xl mx-auto font-medium leading-relaxed">Estamos listos para potenciar tu empresa.</p>
       </div>
       <div className="max-w-6xl mx-auto px-4 mt-24 grid grid-cols-1 md:grid-cols-2 gap-16">
         <div className="bg-slate-50 p-16 rounded-[4rem] border border-slate-100 group hover:shadow-2xl transition-all hover:-translate-y-2">
