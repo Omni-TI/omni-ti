@@ -185,7 +185,6 @@ export default function App() {
                 </div>
               </div>
 
-              <button onClick={() => navigate('cases')} className={`px-4 py-2 text-sm font-medium transition-all rounded-lg ${currentPage === 'cases' ? 'text-blue-600 bg-blue-50' : 'text-slate-600 hover:text-blue-600 hover:bg-slate-50'}`}>Casos</button>
               <div className="h-6 w-px bg-slate-200 mx-2"></div>
               <button onClick={() => navigate('roi')} className={`text-xs font-bold px-4 py-2 rounded-full transition-all border ${currentPage === 'roi' ? 'bg-emerald-600 text-white border-emerald-600 shadow-md' : 'text-slate-600 border-slate-200 hover:border-emerald-300 hover:text-emerald-600'}`}>Calculadora ROI</button>
               <button onClick={() => navigate('assessment')} className={`text-xs font-bold px-4 py-2 rounded-full transition-all border ${currentPage === 'assessment' ? 'bg-blue-600 text-white border-blue-600 shadow-md' : 'text-slate-600 border-slate-200 hover:border-blue-300 hover:text-blue-600'}`}>Diagnóstico</button>
@@ -215,7 +214,7 @@ export default function App() {
       {currentPage === 'home' && (
         <main className="animate-in fade-in duration-700">
           
-          {/* HERO SECTION ACTUALIZADO */}
+          {/* HERO SECTION */}
           <section className="relative pt-16 pb-24 md:pt-32 md:pb-40 bg-white overflow-hidden text-center">
             <div className="max-w-7xl mx-auto px-4 relative z-10">
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 text-blue-700 rounded-full text-[10px] font-black uppercase tracking-widest mb-8 animate-bounce">
@@ -250,14 +249,14 @@ export default function App() {
             </div>
           </section>
 
-          {/* BARRA DE ESTADÍSTICAS */}
+          {/* BARRA DE ESTADÍSTICAS - ACTUALIZADA PARA EMPRESA NUEVA */}
           <div className="border-y border-slate-100 bg-white py-16">
             <div className="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-12">
               {[
                 { l: "Uptime Garantizado", v: "99.9%" },
-                { l: "Soporte", v: "24/7" },
-                { l: "Proyectos Exitosos", v: "+100" },
-                { l: "Eficiencia Ganada", v: "75%" }
+                { l: "Soporte Remoto", v: "24/7" },
+                { l: "Estándar de Seguridad", v: "ISO 27001" },
+                { l: "Experiencia Técnica", v: "+10 Años" }
               ].map((stat, i) => (
                 <div key={i} className="text-center">
                   <div className="text-4xl font-black text-slate-900 mb-2">{stat.v}</div>
@@ -288,7 +287,7 @@ export default function App() {
             </div>
           </section>
 
-          {/* SECCIÓN SOLUCIONES 360° (NUESTROS PILARES) */}
+          {/* SECCIÓN SOLUCIONES 360° */}
           <section className="py-24 bg-white">
             <div className="max-w-7xl mx-auto px-4">
               <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8 text-center md:text-left">
@@ -319,7 +318,7 @@ export default function App() {
                       Ver detalles <ArrowRight className="w-4 h-4" />
                     </button>
                     {/* Elemento visual decorativo */}
-                    <div className="absolute -bottom-10 -right-10 opacity-5 group-hover:scale-125 transition-transform duration-1000">
+                    <div className="absolute -bottom-10 -right-10 opacity-5 group-hover:scale-125 transition-transform duration-1000 text-slate-300">
                       {cat === 'Infraestructura' ? <Network className="w-48 h-48" /> : cat === 'Operaciones' ? <ShieldCheck className="w-48 h-48" /> : <Zap className="w-48 h-48" />}
                     </div>
                   </div>
@@ -337,7 +336,6 @@ export default function App() {
               </p>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto">
-                {/* Card ROI */}
                 <div 
                   onClick={() => navigate('roi')} 
                   className="bg-white/5 backdrop-blur-xl border border-white/10 p-12 rounded-[3.5rem] text-left hover:bg-white/10 transition-all cursor-pointer group"
@@ -345,12 +343,11 @@ export default function App() {
                   <DollarSign className="w-14 h-14 text-emerald-500 mb-8" />
                   <h3 className="text-3xl font-black mb-4">Calculadora ROI</h3>
                   <p className="text-slate-400 font-medium mb-10 leading-relaxed">Mide el impacto financiero de la ineficiencia en tu equipo y descubre cuánto capital puedes recuperar.</p>
-                  <button className="text-emerald-500 font-black text-sm uppercase tracking-widest flex items-center gap-3 group-hover:gap-5 transition-all">
+                  <button className="text-emerald-500 font-black text-sm uppercase tracking widest flex items-center gap-3 group-hover:gap-5 transition-all">
                     Iniciar cálculo <ArrowRight className="w-5 h-5" />
                   </button>
                 </div>
                 
-                {/* Card Test Madurez */}
                 <div 
                   onClick={() => navigate('assessment')} 
                   className="bg-white/5 backdrop-blur-xl border border-white/10 p-12 rounded-[3.5rem] text-left hover:bg-white/10 transition-all cursor-pointer group"
@@ -364,12 +361,12 @@ export default function App() {
                 </div>
               </div>
             </div>
-            {/* Background Blur */}
+            {/* Background Blurs */}
             <div className="absolute top-0 right-0 w-96 h-96 bg-blue-600 rounded-full blur-[150px] opacity-10"></div>
             <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-600 rounded-full blur-[150px] opacity-10"></div>
           </section>
 
-          {/* CTA FINAL (BLUE CARD) */}
+          {/* CTA FINAL */}
           <section className="py-24 bg-white">
             <div className="max-w-6xl mx-auto px-4">
               <div className="bg-blue-600 rounded-[4rem] p-12 md:p-20 text-center text-white relative overflow-hidden shadow-2xl shadow-blue-200">
@@ -385,7 +382,6 @@ export default function App() {
                     Agendar Consultoría Gratuita
                   </button>
                 </div>
-                {/* Icono de fondo decorativo */}
                 <Bot className="absolute -bottom-10 -right-10 w-72 h-72 text-white/10 -rotate-12" />
               </div>
             </div>
@@ -398,10 +394,9 @@ export default function App() {
       {currentPage === 'services' && <ServicesPage services={allServices} />}
       {currentPage === 'roi' && <RoiCalculatorPage />}
       {currentPage === 'assessment' && <AssessmentPage navigate={navigate} />}
-      {currentPage === 'cases' && <CasesPage />}
       {currentPage === 'contact' && <ContactPage />}
 
-      {/* FOOTER ACTUALIZADO */}
+      {/* FOOTER */}
       <footer className="bg-slate-950 text-slate-400 py-20 border-t border-slate-900 mt-auto">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-16 mb-16">
@@ -417,16 +412,16 @@ export default function App() {
             <div>
               <h4 className="text-white font-black text-xs uppercase tracking-[0.3em] mb-8 text-center md:text-left">Empresa</h4>
               <ul className="space-y-4 font-bold text-sm text-center md:text-left">
+                <li><button onClick={() => navigate('about')} className="hover:text-blue-400 transition-colors">Nosotros</button></li>
                 <li><button onClick={() => navigate('services')} className="hover:text-blue-400 transition-colors">Servicios</button></li>
                 <li><button onClick={() => navigate('roi')} className="hover:text-blue-400 transition-colors">Calculadora ROI</button></li>
-                <li><button onClick={() => navigate('cases')} className="hover:text-blue-400 transition-colors">Casos de Éxito</button></li>
               </ul>
             </div>
             <div>
               <h4 className="text-white font-black text-xs uppercase tracking-[0.3em] mb-8 text-center md:text-left">Conecta</h4>
               <ul className="space-y-4 font-bold text-sm text-center md:text-left">
                 <li>Email: <a href="mailto:ventas@omniti.cl" className="hover:text-blue-400 transition-colors">ventas@omniti.cl</a></li>
-                <li>LinkedIn: <a href="https://linkedin.com/omniti" target="_blank" rel="noreferrer" className="hover:text-blue-400 transition-colors">@omniti</a></li>
+                <li>LinkedIn: <a href="https://www.linkedin.com/company/omni-ti/" target="_blank" rel="noreferrer" className="hover:text-blue-400 transition-colors">@omniti</a></li>
               </ul>
             </div>
           </div>
@@ -439,7 +434,7 @@ export default function App() {
   );
 }
 
-// --- SUBPÁGINAS DETALLADAS ---
+// --- SUBPÁGINAS ---
 
 function AboutPage() {
   return (
@@ -471,7 +466,7 @@ function ServicesPage({ services }) {
   return (
     <div className="bg-white min-h-screen pb-24 animate-in fade-in duration-700">
       <div className="bg-slate-900 text-white py-24 md:py-32 px-4 text-center">
-        <h1 className="text-5xl md:text-9xl font-black mb-8 tracking-tighter leading-none">Catálogo <br/> 100% Integral</h1>
+        <h1 className="text-5xl md:text-9xl font-black mb-8 tracking-tighter leading-none">Catálogo <br/> Integral</h1>
         <p className="text-xl text-slate-400 max-w-3xl mx-auto font-medium">Los 12 pilares tecnológicos que sostienen tu operación.</p>
       </div>
       <div className="max-w-7xl mx-auto px-4 mt-24 space-y-32">
@@ -628,42 +623,11 @@ function AssessmentPage({ navigate }) {
   );
 }
 
-function CasesPage() {
-  const cases = [
-    { company: "Logistics Global S.A.", industry: "Logística", title: "Optimización con IA e IoT", challenge: "Pérdida de inventario y retrasos manuales críticos.", solution: "Red 6A, sensores IoT y flujos predictivos IA.", result: "Menos 95% en pérdidas y +40% en rapidez.", stat: "95%", icon: TrendingUp },
-    { company: "Fintech SecurePay", industry: "Finanzas", title: "Blindaje ISO 27001", challenge: "Ataques de phishing recurrentes.", solution: "Firewalls de nueva generación y formación técnica.", result: "Cero incidentes críticos tras implementación.", stat: "ISO 27001", icon: ShieldCheck }
-  ];
-
-  return (
-    <div className="bg-white min-h-screen pb-24 text-slate-700 animate-in fade-in duration-500">
-      <div className="bg-slate-900 text-white py-32 px-4 text-center">
-        <h1 className="text-5xl md:text-8xl font-black mb-8 tracking-tighter leading-none">Impacto <br/>Real</h1>
-      </div>
-      <div className="max-w-7xl mx-auto px-4 mt-20 grid grid-cols-1 md:grid-cols-2 gap-10">
-        {cases.map((c, i) => (
-          <div key={i} className="bg-slate-50 p-16 rounded-[4rem] border border-slate-100 text-left hover:shadow-2xl transition-all group hover:-translate-y-2">
-            <c.icon className="w-12 h-12 text-blue-600 mb-8 transition-transform group-hover:scale-110" />
-            <h3 className="text-3xl font-black mb-6 leading-tight">{c.company}</h3>
-            <div className="space-y-4 mb-10 text-lg">
-              <p className="text-slate-500 font-bold leading-relaxed"><strong>Desafío:</strong> {c.challenge}</p>
-              <p className="text-slate-500 font-bold leading-relaxed"><strong>Solución:</strong> {c.solution}</p>
-            </div>
-            <div className="bg-white p-10 rounded-[2.5rem] flex items-center gap-8 shadow-sm border border-slate-100">
-               <div className="text-6xl font-black text-blue-600">{c.stat}</div>
-               <div className="text-sm text-slate-400 font-black uppercase tracking-[0.2em] leading-relaxed">{c.result}</div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
 function ContactPage() {
   return (
     <div className="bg-white min-h-screen pb-24 text-slate-700 text-center animate-in fade-in duration-500">
       <div className="bg-slate-900 text-white py-32 px-4">
-        <h1 className="text-5xl md:text-9xl font-black mb-10 tracking-tighter">Hablemos.</h1>
+        <h1 className="text-5xl md:text-9xl font-black mb-10 tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400">Hablemos.</h1>
         <p className="text-2xl text-slate-400 max-w-2xl mx-auto font-medium leading-relaxed">Estamos listos para potenciar tu empresa.</p>
       </div>
       <div className="max-w-6xl mx-auto px-4 mt-24 grid grid-cols-1 md:grid-cols-2 gap-16">
@@ -675,7 +639,7 @@ function ContactPage() {
         <div className="bg-slate-50 p-16 rounded-[4rem] border border-slate-100 group hover:shadow-2xl transition-all hover:-translate-y-2">
           <Linkedin className="w-16 h-16 text-slate-900 mx-auto mb-12 group-hover:scale-110 transition-transform" />
           <h3 className="text-3xl font-black mb-4 uppercase tracking-widest text-slate-900">LinkedIn</h3>
-          <a href="https://linkedin.com/omniti" target="_blank" rel="noreferrer" className="inline-block bg-slate-900 text-white px-16 py-6 rounded-3xl font-black text-2xl shadow-2xl hover:bg-blue-600 transition-colors">Ver Perfil</a>
+          <a href="https://www.linkedin.com/company/omni-ti/" target="_blank" rel="noreferrer" className="inline-block bg-slate-900 text-white px-16 py-6 rounded-3xl font-black text-2xl shadow-2xl hover:bg-blue-600 transition-colors">Ver Perfil</a>
         </div>
       </div>
     </div>
