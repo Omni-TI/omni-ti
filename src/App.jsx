@@ -421,7 +421,7 @@ export default function App() {
               <h4 className="text-white font-black text-xs uppercase tracking-[0.3em] mb-8 text-center md:text-left">Conecta</h4>
               <ul className="space-y-4 font-bold text-sm text-center md:text-left">
                 <li>Email: <a href="mailto:ventas@omniti.cl" className="hover:text-blue-400 transition-colors">ventas@omniti.cl</a></li>
-                <li>LinkedIn: <a href="https://www.linkedin.com/company/omni-ti/" target="_blank" rel="noreferrer" className="hover:text-blue-400 transition-colors">@omniti</a></li>
+                <li>LinkedIn: <a href="https://www.linkedin.com/company/omni-ti/" target="_blank" rel="noreferrer" className="hover:text-blue-400 transition-colors">Omni TI</a></li>
               </ul>
             </div>
           </div>
